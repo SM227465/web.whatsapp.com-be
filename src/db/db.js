@@ -7,7 +7,7 @@ const cloudDB = process.env.CLOUD_DB_URL.replace('<password>', process.env.CLOUD
 export const connectWithDB = () => {
   mongoose
     .set('strictQuery', false)
-    .connect(localDB)
+    .connect(cloudDB)
     .then(() => logger.info('Connected to MongoDB.'))
     .catch((err) => {
       logger.error('Failed to connect with MongoDB.');
