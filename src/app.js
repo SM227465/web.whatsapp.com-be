@@ -15,8 +15,8 @@ import { globalErrorHandler } from './controllers/error.controller.js';
 // Routers
 import authRouter from './routes/auth.route.js';
 import conversationRouter from './routes/conversation.route.js';
+import messageRouter from './routes/message.route.js';
 // const userRouter = require('./routes/user.route');
-// const cityRouter = require('./routes/city.route');
 
 //dotEnv config
 dotenv.config();
@@ -77,8 +77,8 @@ app.use(
 // i) Handling available routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/conversation', conversationRouter);
+app.use('/api/v1/message', messageRouter);
 // app.use('/api/v1/users', userRouter);
-// app.use('/api/v1/cities', cityRouter);
 // app.use('/api/v1/categories', categoryRouter);
 
 // ii) Handling unavailable routes

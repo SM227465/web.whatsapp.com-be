@@ -1,6 +1,6 @@
 import express from 'express';
 import trimRequest from 'trim-request';
-import { login, refreshToken, register, protect } from '../controllers/auth.controller.js';
+import { protect } from '../controllers/auth.controller.js';
 import {
   createOpenConversation,
   getConversations,
@@ -13,8 +13,6 @@ router.use(protect);
 
 router.post('/', createOpenConversation);
 router.get('/', getConversations);
-router.post('/login', login);
-router.post('/refresh-token', refreshToken);
 
 export default router;
 
