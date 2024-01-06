@@ -18,6 +18,7 @@ export const register = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     firstName,
     lastName,
+    fullName: `${firstName} ${lastName}`,
     email,
     countryCode,
     phoneNumber,

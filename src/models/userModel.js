@@ -3,7 +3,7 @@ import validator from 'validator';
 import bcrypt from 'bcrypt';
 import { validatePhoneNumber } from '../utils/phoneNumberValidator.js';
 
-const userSchema = mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
@@ -19,6 +19,12 @@ const userSchema = mongoose.Schema(
       minlength: [2, 'Last name should not be less than 2 characters'],
       maxlength: [50, 'Last name should not be more than 50 characters'],
       trim: true,
+    },
+
+    fullName: {
+      type: String,
+      required: true,
+      default: '',
     },
 
     email: {
