@@ -48,7 +48,6 @@ const handleJWTExpired = () => {
 // Error Handling
 // i) Handling development error
 const sendErrorDev = (err, res) => {
-  console.log('1st');
   res.status(err.statusCode).json({
     success: false,
     error: err,
@@ -77,8 +76,6 @@ const sendErrorProd = (err, res) => {
 export const globalErrorHandler = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = false;
-
-  console.log('ENV', process.env.NODE_ENV);
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(err, res);
