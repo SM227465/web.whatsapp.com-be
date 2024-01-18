@@ -6,8 +6,16 @@ import { AppError } from '../utils/error.util.js';
 import { generateToken } from '../utils/token.util.js';
 
 export const register = catchAsync(async (req, res, next) => {
-  const { firstName, lastName, email, countryCode, phoneNumber, password, confirmPassword } =
-    req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    countryCode,
+    phoneNumber,
+    password,
+    confirmPassword,
+    picture,
+  } = req.body;
 
   const user = await User.findOne({ email: email });
 
@@ -24,6 +32,7 @@ export const register = catchAsync(async (req, res, next) => {
     phoneNumber,
     password,
     confirmPassword,
+    picture,
   });
 
   const accessToken = await generateToken(newUser._id, 'access');
